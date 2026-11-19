@@ -1,17 +1,17 @@
 services:
-  # Existing MERN CRUD app
+  # MERN CRUD app
   - type: web
-    name: badri-crud-backend
+    name: mern-crud-backend
     runtime: node
     plan: free
-    rootDir: mern-crud-app-main/backend
+    rootDir: FSD/mern-crud-app-main/backend
     buildCommand: npm install
     startCommand: npm start
 
   - type: web
-    name: badri-crud-frontend
+    name: mern-crud-frontend
     runtime: static
-    rootDir: mern-crud-app-main/frontend
+    rootDir: FSD/mern-crud-app-main/frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
@@ -19,44 +19,76 @@ services:
         source: /*
         destination: /index.html
 
-  # Additional Node apps
+  # Node & Express apps
   - type: web
-    name: badri-mongodb-express
+    name: express-app
     runtime: node
     plan: free
-    rootDir: mongodb-express-app-main
+    rootDir: FSD/express
     buildCommand: npm install
     startCommand: node app.js
 
   - type: web
-    name: badri-mvc-auth
+    name: middleware-app
     runtime: node
     plan: free
-    rootDir: mvc-auth-app-main
+    rootDir: FSD/middleware
+    buildCommand: npm install
+    startCommand: node app.js
+
+  - type: web
+    name: mongodb-express-app
+    runtime: node
+    plan: free
+    rootDir: FSD/mongodb-express-app-main
+    buildCommand: npm install
+    startCommand: node app.js
+
+  - type: web
+    name: mongoose-express-app
+    runtime: node
+    plan: free
+    rootDir: FSD/mongoose-express-app
     buildCommand: npm install
     startCommand: node server.js
 
   - type: web
-    name: badri-mvc-express
+    name: mvc-auth-app
     runtime: node
     plan: free
-    rootDir: mvc-express-app-main
+    rootDir: FSD/mvc-auth-app-main
     buildCommand: npm install
     startCommand: node server.js
 
   - type: web
-    name: badri-products
+    name: mvc-express-app
     runtime: node
     plan: free
-    rootDir: products-file-persistence-app-main
+    rootDir: FSD/mvc-express-app-main
     buildCommand: npm install
     startCommand: node server.js
+
+  - type: web
+    name: products-file-persistence-app
+    runtime: node
+    plan: free
+    rootDir: FSD/products-file-persistence-app-main
+    buildCommand: npm install
+    startCommand: node server.js
+
+  - type: web
+    name: temp-engine-ejs-app
+    runtime: node
+    plan: free
+    rootDir: FSD/temp-engine-ejs-app
+    buildCommand: npm install
+    startCommand: node app.js
 
   # React examples
   - type: web
-    name: badri-conditional-rendering
+    name: conditional-rendering
     runtime: static
-    rootDir: react-conditional-rendering-app-main
+    rootDir: FSD/react-conditional-rendering-app-main
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
@@ -65,9 +97,9 @@ services:
         destination: /index.html
 
   - type: web
-    name: badri-form-events
+    name: form-events
     runtime: static
-    rootDir: react-form-events-app-main
+    rootDir: FSD/react-form-events-app-main
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
@@ -76,9 +108,9 @@ services:
         destination: /index.html
 
   - type: web
-    name: badri-frontend-crud
+    name: frontend-crud
     runtime: static
-    rootDir: react-frontend-crud-app-main
+    rootDir: FSD/react-frontend-crud-app-main
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
@@ -87,9 +119,9 @@ services:
         destination: /index.html
 
   - type: web
-    name: badri-html-render
+    name: html-render
     runtime: static
-    rootDir: react-html-render-app-main
+    rootDir: FSD/react-html-render-app-main
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
@@ -98,9 +130,9 @@ services:
         destination: /index.html
 
   - type: web
-    name: badri-jsx-render
+    name: jsx-render
     runtime: static
-    rootDir: react-jsx-render-app-main
+    rootDir: FSD/react-jsx-render-app-main
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
@@ -109,9 +141,9 @@ services:
         destination: /index.html
 
   - type: web
-    name: badri-nested-components
+    name: nested-components
     runtime: static
-    rootDir: react-nested-components-app-main
+    rootDir: FSD/react-nested-components-app-main
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
@@ -120,9 +152,9 @@ services:
         destination: /index.html
 
   - type: web
-    name: badri-rendering-lists
+    name: rendering-lists
     runtime: static
-    rootDir: react-rendering-lists-app-main
+    rootDir: FSD/react-rendering-lists-app-main
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
@@ -131,9 +163,9 @@ services:
         destination: /index.html
 
   - type: web
-    name: badri-router
+    name: router-app
     runtime: static
-    rootDir: react-router-app-main
+    rootDir: FSD/react-router-app-main
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
@@ -142,9 +174,9 @@ services:
         destination: /index.html
 
   - type: web
-    name: badri-state-events
+    name: state-events
     runtime: static
-    rootDir: react-state-events-app-main
+    rootDir: FSD/react-state-events-app-main
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
