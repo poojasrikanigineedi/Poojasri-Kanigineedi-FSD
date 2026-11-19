@@ -8,9 +8,7 @@ services:
     startCommand: node app.js
     envVars:
       - key: MONGO_URI
-        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/library_db?retryWrites=true&w=majority
-      - key: MONGODB_URI
-        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/library_db?retryWrites=true&w=majority
+        sync: false
 
   - type: web
     name: mongoose-express-app
@@ -21,9 +19,7 @@ services:
     startCommand: node server.js
     envVars:
       - key: MONGO_URI
-        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
-      - key: MONGODB_URI
-        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
+        sync: false
 
   - type: web
     name: mvc-auth-app
@@ -34,11 +30,9 @@ services:
     startCommand: node server.js
     envVars:
       - key: MONGO_URI
-        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
-      - key: MONGODB_URI
-        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
+        sync: false
       - key: JWT_SECRET
-        value: fsd_super_secret_jwt_key_2026
+        sync: false
 
   - type: web
     name: temp-engine-ejs-app
@@ -49,6 +43,4 @@ services:
     startCommand: node server.js
     envVars:
       - key: MONGO_URI
-        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
-      - key: MONGODB_URI
-        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
+        sync: false
