@@ -9,7 +9,7 @@ services:
     envVars:
       - key: MONGO_URI
         sync: false
-- type: web
+  - type: web
     name: mongoose-express-app
     runtime: node
     plan: free
@@ -41,14 +41,14 @@ services:
     envVars:
       - key: MONGO_URI
         sync: false
-- type: web
+ - type: web
     name: products-file-persistence-app
     runtime: node
     plan: free
     rootDir: FSD/products-file-persistence-app-main # Remove "FSD/" if this folder is at the top level of your repo
     buildCommand: npm install
     startCommand: node server.js
-- type: web
+ - type: web
     name: temp-engine-ejs-app
     runtime: node
     plan: free
@@ -58,7 +58,7 @@ services:
     envVars:
       - key: MONGO_URI # Match the exact key inside your .env file
         sync: false
-- type: web
+ - type: web
     name: mern-crud-backend
     runtime: node
     plan: free
