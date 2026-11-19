@@ -1,29 +1,31 @@
 services:
   - type: web
-    name: mongodb-express-app
+    name: mongodb-express-app-main
     runtime: node
     plan: free
-    rootDir: FSD/mongodb-express-app-main # Remove "FSD/" if this folder is at the top level of your repo
+    rootDir: FSD/mongodb-express-app-main
     buildCommand: npm install
     startCommand: node app.js
     envVars:
       - key: MONGO_URI
         sync: false
+
   - type: web
     name: mongoose-express-app
     runtime: node
     plan: free
-    rootDir: FSD/mongoose-express-app # Remove "FSD/" if this folder is at the top level of your repo
+    rootDir: FSD/mongoose-express-app
     buildCommand: npm install
     startCommand: node server.js
     envVars:
-      - key: MONGO_URI # Match the exact variable name inside your .env file
+      - key: MONGO_URI
         sync: false
- - type: web
+
+  - type: web
     name: mvc-auth-app
     runtime: node
     plan: free
-    rootDir: FSD/mvc-auth-app-main # Remove "FSD/" if this folder is at the top level of your repo
+    rootDir: FSD/mvc-auth-app-main
     buildCommand: npm install
     startCommand: node server.js
     envVars:
@@ -31,40 +33,44 @@ services:
         sync: false
       - key: JWT_SECRET
         sync: false
- - type: web
+
+  - type: web
     name: mvc-express-app
     runtime: node
     plan: free
-    rootDir: FSD/mvc-express-app-main # Remove "FSD/" if this folder is at the top level of your repo
+    rootDir: FSD/mvc-express-app-main
     buildCommand: npm install
     startCommand: node server.js
     envVars:
       - key: MONGO_URI
         sync: false
- - type: web
+
+  - type: web
     name: products-file-persistence-app
     runtime: node
     plan: free
-    rootDir: FSD/products-file-persistence-app-main # Remove "FSD/" if this folder is at the top level of your repo
+    rootDir: FSD/products-file-persistence-app-main
     buildCommand: npm install
     startCommand: node server.js
- - type: web
+
+  - type: web
     name: temp-engine-ejs-app
     runtime: node
     plan: free
-    rootDir: FSD/temp-engine-ejs-app # Remove "FSD/" if this folder is at the top level of your repo
+    rootDir: FSD/temp-engine-ejs-app
     buildCommand: npm install
     startCommand: node server.js
     envVars:
-      - key: MONGO_URI # Match the exact key inside your .env file
+      - key: MONGO_URI
         sync: false
- - type: web
+
+  - type: web
     name: mern-crud-backend
     runtime: node
     plan: free
-    rootDir: FSD/mern-crud-app-main/backend # Remove "FSD/" if mern-crud-app-main is at the top level of your repo
+    rootDir: FSD/mern-crud-app-main/backend
     buildCommand: npm install
     startCommand: node server.js
     envVars:
-      - key: MONGO_URI # Verify inside server.js whether it uses MONGO_URI or MONGODB_URI
+      - key: MONGO_URI
         sync: false
