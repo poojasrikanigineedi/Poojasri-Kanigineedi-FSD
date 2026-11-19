@@ -4,73 +4,57 @@ services:
     runtime: node
     plan: free
     rootDir: FSD/mongodb-express-app-main
-    buildCommand: npm install
+    buildCommand: rm -rf node_modules && npm install
     startCommand: node app.js
     envVars:
       - key: MONGO_URI
-        sync: false
+        value: YOUR_MONGODB_ATLAS_URI_HERE
+      - key: MONGODB_URI
+        value: YOUR_MONGODB_ATLAS_URI_HERE
+      - key: DB_URL
+        value: YOUR_MONGODB_ATLAS_URI_HERE
 
   - type: web
     name: mongoose-express-app
     runtime: node
     plan: free
     rootDir: FSD/mongoose-express-app
-    buildCommand: npm install
+    buildCommand: rm -rf node_modules && npm install
     startCommand: node server.js
     envVars:
       - key: MONGO_URI
-        sync: false
+        value: YOUR_MONGODB_ATLAS_URI_HERE
+      - key: MONGODB_URI
+        value: YOUR_MONGODB_ATLAS_URI_HERE
+      - key: DB_URL
+        value: YOUR_MONGODB_ATLAS_URI_HERE
 
   - type: web
     name: mvc-auth-app
     runtime: node
     plan: free
     rootDir: FSD/mvc-auth-app-main
-    buildCommand: npm install
+    buildCommand: rm -rf node_modules && npm install
     startCommand: node server.js
     envVars:
       - key: MONGO_URI
-        sync: false
+        value: YOUR_MONGODB_ATLAS_URI_HERE
+      - key: MONGODB_URI
+        value: YOUR_MONGODB_ATLAS_URI_HERE
       - key: JWT_SECRET
-        sync: false
-
-  - type: web
-    name: mvc-express-app
-    runtime: node
-    plan: free
-    rootDir: FSD/mvc-express-app-main
-    buildCommand: npm install
-    startCommand: node server.js
-    envVars:
-      - key: MONGO_URI
-        sync: false
-
-  - type: web
-    name: products-file-persistence-app
-    runtime: node
-    plan: free
-    rootDir: FSD/products-file-persistence-app-main
-    buildCommand: npm install
-    startCommand: node server.js
+        value: fsd_super_secret_jwt_key_2026
 
   - type: web
     name: temp-engine-ejs-app
     runtime: node
     plan: free
     rootDir: FSD/temp-engine-ejs-app
-    buildCommand: npm install
+    buildCommand: rm -rf node_modules && npm install
     startCommand: node server.js
     envVars:
       - key: MONGO_URI
-        sync: false
-
-  - type: web
-    name: mern-crud-backend
-    runtime: node
-    plan: free
-    rootDir: FSD/mern-crud-app-main/backend
-    buildCommand: npm install
-    startCommand: node server.js
-    envVars:
-      - key: MONGO_URI
-        sync: false
+        value: YOUR_MONGODB_ATLAS_URI_HERE
+      - key: MONGODB_URI
+        value: YOUR_MONGODB_ATLAS_URI_HERE
+      - key: DB_URL
+        value: YOUR_MONGODB_ATLAS_URI_HERE
