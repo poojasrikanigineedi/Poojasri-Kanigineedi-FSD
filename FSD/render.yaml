@@ -4,43 +4,39 @@ services:
     runtime: node
     plan: free
     rootDir: FSD/mongodb-express-app-main
-    buildCommand: rm -rf node_modules && npm install
+    buildCommand: rm -rf node_modules .env && npm install
     startCommand: node app.js
     envVars:
       - key: MONGO_URI
-        value: YOUR_MONGODB_ATLAS_URI_HERE
+        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/library_db?retryWrites=true&w=majority
       - key: MONGODB_URI
-        value: YOUR_MONGODB_ATLAS_URI_HERE
-      - key: DB_URL
-        value: YOUR_MONGODB_ATLAS_URI_HERE
+        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/library_db?retryWrites=true&w=majority
 
   - type: web
     name: mongoose-express-app
     runtime: node
     plan: free
     rootDir: FSD/mongoose-express-app
-    buildCommand: rm -rf node_modules && npm install
+    buildCommand: rm -rf node_modules .env && npm install express mongoose dotenv cors
     startCommand: node server.js
     envVars:
       - key: MONGO_URI
-        value: YOUR_MONGODB_ATLAS_URI_HERE
+        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
       - key: MONGODB_URI
-        value: YOUR_MONGODB_ATLAS_URI_HERE
-      - key: DB_URL
-        value: YOUR_MONGODB_ATLAS_URI_HERE
+        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
 
   - type: web
     name: mvc-auth-app
     runtime: node
     plan: free
     rootDir: FSD/mvc-auth-app-main
-    buildCommand: rm -rf node_modules && npm install
+    buildCommand: rm -rf node_modules .env && npm install
     startCommand: node server.js
     envVars:
       - key: MONGO_URI
-        value: YOUR_MONGODB_ATLAS_URI_HERE
+        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
       - key: MONGODB_URI
-        value: YOUR_MONGODB_ATLAS_URI_HERE
+        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
       - key: JWT_SECRET
         value: fsd_super_secret_jwt_key_2026
 
@@ -49,12 +45,10 @@ services:
     runtime: node
     plan: free
     rootDir: FSD/temp-engine-ejs-app
-    buildCommand: rm -rf node_modules && npm install
+    buildCommand: rm -rf node_modules .env && npm install
     startCommand: node server.js
     envVars:
       - key: MONGO_URI
-        value: YOUR_MONGODB_ATLAS_URI_HERE
+        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
       - key: MONGODB_URI
-        value: YOUR_MONGODB_ATLAS_URI_HERE
-      - key: DB_URL
-        value: YOUR_MONGODB_ATLAS_URI_HERE
+        value: mongodb+srv://poojasrikanigineedi_db_user:aLkf2y5i7NvGNNAT@cluster0.enhqmkq.mongodb.net/fsd_db?retryWrites=true&w=majority
