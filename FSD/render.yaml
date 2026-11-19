@@ -1,185 +1,70 @@
 services:
-  # MERN CRUD app
-  - type: web
-    name: mern-crud-backend
-    runtime: node
-    plan: free
-    rootDir: FSD/mern-crud-app-main/backend
-    buildCommand: npm install
-    startCommand: npm start
-
-  - type: web
-    name: mern-crud-frontend
-    runtime: static
-    rootDir: FSD/mern-crud-app-main/frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-
-  # Node & Express apps
-  - type: web
-    name: express-app
-    runtime: node
-    plan: free
-    rootDir: FSD/express
-    buildCommand: npm install
-    startCommand: node app.js
-
-  - type: web
-    name: middleware-app
-    runtime: node
-    plan: free
-    rootDir: FSD/middleware
-    buildCommand: npm install
-    startCommand: node app.js
-
   - type: web
     name: mongodb-express-app
     runtime: node
     plan: free
-    rootDir: FSD/mongodb-express-app-main
+    rootDir: FSD/mongodb-express-app-main # Remove "FSD/" if this folder is at the top level of your repo
     buildCommand: npm install
     startCommand: node app.js
-
-  - type: web
+    envVars:
+      - key: MONGO_URI
+        sync: false
+- type: web
     name: mongoose-express-app
     runtime: node
     plan: free
-    rootDir: FSD/mongoose-express-app
+    rootDir: FSD/mongoose-express-app # Remove "FSD/" if this folder is at the top level of your repo
     buildCommand: npm install
     startCommand: node server.js
-
-  - type: web
+    envVars:
+      - key: MONGO_URI # Match the exact variable name inside your .env file
+        sync: false
+ - type: web
     name: mvc-auth-app
     runtime: node
     plan: free
-    rootDir: FSD/mvc-auth-app-main
+    rootDir: FSD/mvc-auth-app-main # Remove "FSD/" if this folder is at the top level of your repo
     buildCommand: npm install
     startCommand: node server.js
-
-  - type: web
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+ - type: web
     name: mvc-express-app
     runtime: node
     plan: free
-    rootDir: FSD/mvc-express-app-main
+    rootDir: FSD/mvc-express-app-main # Remove "FSD/" if this folder is at the top level of your repo
     buildCommand: npm install
     startCommand: node server.js
-
-  - type: web
+    envVars:
+      - key: MONGO_URI
+        sync: false
+- type: web
     name: products-file-persistence-app
     runtime: node
     plan: free
-    rootDir: FSD/products-file-persistence-app-main
+    rootDir: FSD/products-file-persistence-app-main # Remove "FSD/" if this folder is at the top level of your repo
     buildCommand: npm install
     startCommand: node server.js
-
-  - type: web
+- type: web
     name: temp-engine-ejs-app
     runtime: node
     plan: free
-    rootDir: FSD/temp-engine-ejs-app
+    rootDir: FSD/temp-engine-ejs-app # Remove "FSD/" if this folder is at the top level of your repo
     buildCommand: npm install
-    startCommand: node app.js
-
-  # React examples
-  - type: web
-    name: conditional-rendering
-    runtime: static
-    rootDir: FSD/react-conditional-rendering-app-main
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-
-  - type: web
-    name: form-events
-    runtime: static
-    rootDir: FSD/react-form-events-app-main
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-
-  - type: web
-    name: frontend-crud
-    runtime: static
-    rootDir: FSD/react-frontend-crud-app-main
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-
-  - type: web
-    name: html-render
-    runtime: static
-    rootDir: FSD/react-html-render-app-main
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-
-  - type: web
-    name: jsx-render
-    runtime: static
-    rootDir: FSD/react-jsx-render-app-main
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-
-  - type: web
-    name: nested-components
-    runtime: static
-    rootDir: FSD/react-nested-components-app-main
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-
-  - type: web
-    name: rendering-lists
-    runtime: static
-    rootDir: FSD/react-rendering-lists-app-main
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-
-  - type: web
-    name: router-app
-    runtime: static
-    rootDir: FSD/react-router-app-main
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-
-  - type: web
-    name: state-events
-    runtime: static
-    rootDir: FSD/react-state-events-app-main
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    startCommand: node server.js
+    envVars:
+      - key: MONGO_URI # Match the exact key inside your .env file
+        sync: false
+- type: web
+    name: mern-crud-backend
+    runtime: node
+    plan: free
+    rootDir: FSD/mern-crud-app-main/backend # Remove "FSD/" if mern-crud-app-main is at the top level of your repo
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGO_URI # Verify inside server.js whether it uses MONGO_URI or MONGODB_URI
+        sync: false
