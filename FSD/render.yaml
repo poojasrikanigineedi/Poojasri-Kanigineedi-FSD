@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: free
     rootDir: FSD/mongodb-express-app-main
-    buildCommand: rm -rf node_modules .env && npm install
+    buildCommand: rm -rf node_modules .env && npm instalL
     startCommand: node app.js
     envVars:
       - key: MONGO_URI
